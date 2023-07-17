@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/student/all}">Student Management</a>
+        <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/student/new}">New Student</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<div class="container row col-md-8 offset-md-2">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">View Student</h2>
+        </div>
+        <div class="card-body" th:object="${student}">
+                <div class="form-group mb-3">
+                    <label class="form-label" for="studentName">Student Name</label>
+                    <input type="text" class="form-control" id="studentName" name="studentName" placeholder="Enter Name" th:field="*{studentName}" disabled>
+                    <p class="text-danger" th:if="${#fields.hasErrors('studentName')}" th:errors="*{studentName}"></p>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label" for="studentAddress">Student Address</label>
+                    <input type="text" class="form-control" id="studentAddress" name="studentAddress" placeholder="Enter Address" th:field="*{studentAddress}" disabled>
+                    <p class="text-danger" th:if="${#fields.hasErrors('studentAddress')}" th:errors="*{studentAddress}"></p>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label" for="studentEmail">Student Email</label>
+                    <input type="text" class="form-control" id="studentEmail" name="studentEmail" placeholder="Enter Email" th:field="*{studentEmail}" disabled>
+                    <p class="text-danger" th:if="${#fields.hasErrors('studentEmail')}" th:errors="*{studentEmail}"></p>
+                </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

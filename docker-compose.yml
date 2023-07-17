@@ -1,0 +1,30 @@
+version: "3.8"
+
+networks:
+  spring-boot-app-curd-dock-compose:
+
+services:
+  postgres-db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: studentManagement
+    networks:
+      spring-boot-app-curd-dock-compose:
+
+  spring-boot-app-curd:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    links:
+      - postgres-db
+    environment:
+      - DB_URL=jdbc:postgresql://postgres-db/studentManagement
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+    networks:
+      spring-boot-app-curd-dock-compose:
+    restart: on-failure
