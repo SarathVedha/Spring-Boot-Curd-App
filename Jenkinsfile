@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo "Running ${env.JOB_NAME} Build ${env.BUILD_ID} on ${env.JENKINS_URL}"
                 echo 'Building Docker Image'
-                bat 'docker build -t spring-app:%BUILD_NUMBER% .'
+                bat 'docker build -t spring-boot-app-curd:%BUILD_NUMBER% .'
             }
         }
     }
