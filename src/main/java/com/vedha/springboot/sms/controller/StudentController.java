@@ -54,7 +54,7 @@ public class StudentController {
                               Model model
     ) {
 
-        String page = "";
+        String page = null;
         if (bindingResult.hasErrors()) {
 
             model.addAttribute("student", studentDTO);
@@ -87,7 +87,7 @@ public class StudentController {
                                 BindingResult bindingResult) {
 
         studentDTO.setStudentId(studentId);
-        String page = "";
+        String page = null;
         if (bindingResult.hasErrors()) {
 
             model.addAttribute("student", studentDTO);
