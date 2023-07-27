@@ -4,7 +4,6 @@ import com.vedha.springboot.sms.dto.StudentDTO;
 import com.vedha.springboot.sms.service.StudentService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,7 +19,7 @@ public class StudentController {
     private final StudentService studentService;
 
     @GetMapping(value = {"/"})
-    public String reDirect(Model model) {
+    public String reDirect() {
 
         return "redirect:student/all";
     }
