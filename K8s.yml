@@ -13,7 +13,7 @@ metadata:
   name: spring-boot-app-curd-config
   namespace: dev
 data:
-  dbURL: jdbc:postgresql://postgres-db/studentManagement
+  dbURL: "jdbc:postgresql://postgres-db/studentManagement"
 
 
 #Secrets values are in base64
