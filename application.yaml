@@ -3,7 +3,7 @@
 # Custom API Version (argoproj.io/v1alpha1) get in argocd docs
 # Kind Application
 apiVersion: argoproj.io/v1alpha1
-Kind: Application
+kind: Application
 metadata:
   name: curd-application
   namespace: argocd
