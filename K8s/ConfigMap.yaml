@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spring-boot-curd-app-config
+  labels:
+    app: spring-boot-curd-app
+  namespace: dev
+data:
+  dbURL: "jdbc:postgresql://postgres-db/studentManagement"
+  

@@ -1,0 +1,24 @@
+# nonk8s
+# ArgoCD Implementation (First Execute in cluster -> kubectl apply -f .\application.yaml)
+# Custom API Version (argoproj.io/v1alpha1) get in argocd docs
+# Kind Application
+apiVersion: argoproj.io/v1alpha1
+Kind: Application
+metadata:
+  name: curd-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/SarathVedha/Java-Spring-Curd-App.git
+    targetRevision: HEAD
+    path: K8s #GitHub K8s manifest Path
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    syncOptions: # if NameSpace does not exist will create (dev)
+      - CreateNamespace = true
+    automated: # if the user tries to modify in Kubectl it will redirect to its state
+      selfHeal: true
+      prune: true
