@@ -79,10 +79,13 @@ pipeline {
                 // sh -> sh 'cat K8s/Deployment.yaml'
                 bat 'more K8s\\Deployment.yaml'
 
-                // Updating Deployment File With Groovy syntax for both Linux and Windows
-                def text = readFile 'K8s/Deployment.yaml'
-                text = text.replaceAll("image:.*", "image: sarathvedha/spring-boot-curd-app:${env.BUILD_NUMBER}")
-                writeFile file: 'K8s/Deployment.yaml', text: text
+                script{
+
+                    // Updating Deployment File With Groovy syntax for both Linux and Windows
+                    def text = readFile 'K8s/Deployment.yaml'
+                    text = text.replaceAll("image:.*", "image: sarathvedha/spring-boot-curd-app:${env.BUILD_NUMBER}")
+                    writeFile file: 'K8s/Deployment.yaml', text: text
+                }
 
                 echo 'Updated Deployment File: '
 
