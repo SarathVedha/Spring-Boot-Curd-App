@@ -6,5 +6,5 @@ metadata:
     app: spring-boot-curd-app
   namespace: dev
 data:
-  dbURL: "jdbc:postgresql://curd-db.ci2s74juluto.ap-south-2.rds.amazonaws.com/studentManagement"
+  dbURL: "jdbc:postgresql://postgres-db/studentManagement"
   
