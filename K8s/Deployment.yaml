@@ -6,7 +6,7 @@ metadata:
     app: spring-boot-curd-app
   namespace: dev
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: spring-boot-curd-app
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-curd-app
-          image: sarathvedha/spring-boot-curd-app:24
+          image: sarathvedha/spring-boot-curd-app:25
           imagePullPolicy: IfNotPresent
           env:
             - name: DB_URL
