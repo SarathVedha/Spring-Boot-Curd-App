@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: spring-boot-curd-app
-          image: sarathvedha/spring-boot-curd-app:latest
+          image: sarathvedha/spring-boot-curd-app:24
           imagePullPolicy: IfNotPresent
           env:
             - name: DB_URL
